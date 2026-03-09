@@ -37,7 +37,7 @@ export function HeaderActions({ userId }) {
 
   return (
     <>
-      <Link href="http://localhost:3001">
+      <Link href="https://ai-course-builder-phi.vercel.app/">
         <Button
           variant="outline"
           className="hidden md:inline-flex items-center gap-2"
