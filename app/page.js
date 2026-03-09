@@ -10,12 +10,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import HeroSection from "@/components/hero";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { FAQAccordion } from "@/components/faq-accordion";
 import Image from "next/image";
 import { features } from "@/data/features";
 import { testimonial } from "@/data/testimonial";
@@ -170,16 +165,7 @@ export default function LandingPage() {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            <Accordion type="single" collapsible className="w-full">
-              {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent>{faq.answer}</AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <FAQAccordion faqs={faqs} />
           </div>
         </div>
       </section>
