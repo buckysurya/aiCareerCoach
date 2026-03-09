@@ -7,6 +7,7 @@ import {
   GraduationCap,
   ChevronDown,
   StarsIcon,
+  Notebook
 } from "lucide-react";
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
@@ -35,9 +36,19 @@ export default async function Header() {
           />
         </Link>
 
+
         {/* Action Buttons */}
         <div className="flex items-center space-x-2 md:space-x-4">
           <SignedIn>
+            <Link href="http://localhost:3001">
+              <Button
+                variant="outline"
+                className="hidden md:inline-flex items-center gap-2"
+              >
+                <Notebook className="h-4 w-4" />
+                  <span className="hidden md:block">AI Course Builder</span>
+              </Button>
+            </Link>
             <Link href="/dashboard">
               <Button
                 variant="outline"
@@ -87,12 +98,7 @@ export default async function Header() {
           </SignedIn>
 
           <SignedOut>
-            <SignInButton
-              mode="modal"
-              signInUrl="/sign-in"
-              afterSignInUrl="/onboarding"
-              afterSignUpUrl="/onboarding"
-            >
+            <SignInButton mode="modal">
               <Button variant="outline">Sign In</Button>
             </SignInButton>
           </SignedOut>
@@ -106,7 +112,6 @@ export default async function Header() {
                   userPreviewMainIdentifier: "font-semibold",
                 },
               }}
-              afterSignOutUrl="/"
             />
           </SignedIn>
         </div>
